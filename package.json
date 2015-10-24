@@ -1,0 +1,23 @@
+{
+  "name": "daze-backend",
+  "version": "0.1.0",
+  "description": "This is the backend for Daze, Waze for De Anza.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevelopersGuild/daze-backend.git"
+  },
+  "author": "Developers' Guild Web Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevelopersGuild/daze-backend/issues"
+  },
+  "homepage": "https://github.com/DevelopersGuild/daze-backend",
+  "dependencies": {
+    "express": "^4.12.3",
+    "node-tesseract": "~0.2.7"
+  }
+}
