@@ -1,6 +1,6 @@
 'use strict';
 
-var express    = require('express');
+var express = require('express');
 
 // Use middleware
 var app = express();
@@ -22,4 +22,7 @@ var server = app.listen(SERVER_PORT, SERVER_ADDRESS, function ()
 {
   var host = server.address().address;
   var port = server.address().port;
+
+  console.log('Node-App listening to ' + SERVER_ADDRESS +
+    ' on port ' + SERVER_PORT);
 });
