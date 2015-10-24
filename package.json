@@ -1,5 +1,5 @@
 {
-  "name": "Active Ingreducate Backend",
+  "name": "Active_Ingreducate_Backend",
   "version": "0.1.0",
   "description": "Server code to scan uploaded images from mobile client on server with Tesseract.",
   "main": "server.js",

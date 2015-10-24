@@ -20,7 +20,7 @@ module.exports = function(app)
         return;
       }
       var ext = image.type.split('/').pop();
-      var path = __dirname + '/images/temp.' + ext;
+      var path = '../images/temp.' + ext;
 
       // Write the data so that tesseract has access to it.
       fs.writeFile(path, data, function(err)
