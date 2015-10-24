@@ -1,21 +1,21 @@
 {
-  "name": "daze-backend",
+  "name": "Active Ingreducate Backend",
   "version": "0.1.0",
-  "description": "This is the backend for Daze, Waze for De Anza.",
+  "description": "Server code to scan uploaded images from mobile client on server with Tesseract.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DevelopersGuild/daze-backend.git"
+    "url": "https://github.com/tuan91187dsf/active-ingreducate-backend.git"
   },
-  "author": "Developers' Guild Web Team",
+  "author": "dead-tired-fml-lazy-pumpkins",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DevelopersGuild/daze-backend/issues"
+    "url": "https://github.com/tuan91187dsf/active-ingreducate-backend/issues"
   },
-  "homepage": "https://github.com/DevelopersGuild/daze-backend",
+  "homepage": "https://github.com/tuan91187dsf/active-ingreducate-backend.git",
   "dependencies": {
     "express": "^4.12.3",
     "node-tesseract": "~0.2.7"
