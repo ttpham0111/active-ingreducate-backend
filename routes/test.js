@@ -6,7 +6,7 @@ module.exports = function(app)
 
   function test(req, res)
   {
-    var img = 'images/sample1.png';
+    var img = 'images/sample6.jpg';
 
     tesseract.process(img, function(err, text)
     {
@@ -22,30 +22,45 @@ module.exports = function(app)
 
       var result = 'No ingredients found';
 
-      // Food ingredients list.
-      if (text.toLowerCase().indexOf('ingredient') > -1)
-      {
-        text = text.replace(/.*:(.*)/, '$1');
-        var ingredients = text.split(',');
-        for (var i = 0; i < ingredients.length; ++i)
-        {
-          ingredients[i] = ingredients[i]
-            .replace(/\n*/g, '')
-            .replace(/\s+/g, '')
-            .trim();
-          console.log(i + ' ' + ingredients[i] + '\n');
-        }
-        result = ingredients;
-      }
       // Drugs active ingredients list.
-      else if (text.indexOf('...') > -1)
+      if (text.indexOf('...') > -1)
       {
-        var activeIngredients = text.replace(/^\s*(.*)\.\.+/mg, '$1');
-        for (var activeIngredient in activeIngredients)
+        var activeIngredients = text.match(/^.*\.\.\.+/gm);
+
+        for (var i = 0; i < activeIngredients.length; ++i)
         {
-          activeIngredient = activeIngredient.replace(/\n*/, '').trim();
+          activeIngredients[i] = activeIngredients[i]
+          .replace(/^(.*?)\.\.\.+/, '$1')
+          .replace(/\n+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+
+          console.log(i + ' ' + activeIngredients[i] + '\n');
         }
         result = activeIngredients;
+      }
+
+      // Food ingredients list.
+      else if (text.toLowerCase().indexOf('ingredient') > -1)
+      {
+        text = text.replace(/.*:(.*)/, '$1');
+
+        var ingredients = text.split(',');
+        if (!ingredients.length)
+        {
+          ingredients = text.split('/');
+        }
+
+        for (var j = 0; j < ingredients.length; ++j)
+        {
+          ingredients[j] = ingredients[j]
+            .replace(/\n+/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+          console.log(j + ' ' + ingredients[j] + '\n');
+        }
+        result = ingredients;
       }
       res.send(
       {
@@ -54,8 +69,20 @@ module.exports = function(app)
         result: result
       });
     });
-
   }
+
+  // function query(array)
+  // {
+  //   if (typeof(array) == 'object' && !array.length)
+  //   {
+  //     return;
+  //   }
+
+  //   for (var i = 0; i < array.length; ++i)
+  //   {
+
+  //   }
+  // }
 
   app.get('/test', test);
 };
